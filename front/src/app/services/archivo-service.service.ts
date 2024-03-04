@@ -12,7 +12,7 @@ export interface ArchivoConNombreCampo {
 })
 export class ArchivoServiceService {
   constructor(private http: HttpClient) {}
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://dossin-back.vercel.app';
 
   enviarArchivosYDatos(datosFormulario: any, archivosPDF: ArchivoConNombreCampo[]): Observable<any> {
     const formData = new FormData();

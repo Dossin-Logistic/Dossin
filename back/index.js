@@ -37,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://dossin-front.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', 'https://dossin.com.ar');
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
