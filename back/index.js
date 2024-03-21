@@ -61,23 +61,23 @@ const getTokenWithRefresh = async (secret, refreshToken) => {
     secret.redirectUrls
   );
 
-  // Verifica que credentials esté definido antes de asignar el refresh_token
+
   if (oauth2Client.credentials) {
     oauth2Client.credentials.refresh_token = refreshToken;
 
     return new Promise((resolve, reject) => {
       oauth2Client.getRequestHeaders((error, tokens) => {
         if (!error) {
-          // Persiste los nuevos tokens (tokens.access_token y tokens.refresh_token)
+
           resolve(tokens);
         } else {
-          // Manejo de errores durante la renovación del token
+
           reject(error);
         }
       });
     });
   } else {
-    // Manejo de casos donde credentials no está definido
+
     throw new Error("No se pudo obtener credentials");
   }
 };
@@ -94,7 +94,7 @@ const archivosPDF = req.files;
     const  CLIENT_ID  = '1006983588167-539dpenprkvhipfd60kch2prmuhf4ic1.apps.googleusercontent.com';
     const  CLIENT_SECRET  = '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';
     const  REDIRECT_URI  = 'https://developers.google.com/oauthplayground';
-    const REFRESH_TOKEN  = '1//0fonk8dxLCA1NCgYIARAAGA8SNwF-L9IryVJ0D4iKZNDn-nXkiU6786AR9WowY2vrh6kaWEK6TzXlWP7zaEyolpTr3V7zqdwG9FI';
+    const REFRESH_TOKEN  = '1//04y3uvbw4gwlCCgYIARAAGAQSNwF-L9Irj8iWX6pXS9nq3qCtSWxT2aiuYzOZ9YqvoLXFGHNyvPn7uiEjktpmfv35kh8UmJyeCjg';
 
     const oAuth2Client = new google.auth.OAuth2(
       CLIENT_ID,
@@ -179,15 +179,22 @@ const archivosPDF = req.files;
         
         const tokenAcceso = await oAuth2Client.getAccessToken();
         const transporter = nodemailer.createTransport({
-          service: 'Gmail',
+          service: 'gmail',
+          port: 465,
+          secure: true,
+          logger:true,
+
+          secureConnection: false,
           auth: {
-            type: 'OAuth2',
+
             user: 'dossin.mail.service@gmail.com',
-            clientId: CLIENT_ID,
-            clientSecret: CLIENT_SECRET,
-            refreshToken: REFRESH_TOKEN,
-            accessToken: tokenAcceso,
+            pass: 'zmps zyok owds vceh',
+
           },
+          tls:{
+            rejectUnauthorized: true
+          }
+
         });
     
         const attachments = archivosPDF.map((archivo, index) => ({
@@ -252,15 +259,22 @@ const archivosPDF = req.files;
         try {
           const tokenAcceso = await oAuth2Client.getAccessToken();
           const transporter = nodemailer.createTransport({
-            service: 'Gmail',
+            service: 'gmail',
+            port: 465,
+            secure: true,
+            logger:true,
+  
+            secureConnection: false,
             auth: {
-              type: 'OAuth2',
+  
               user: 'dossin.mail.service@gmail.com',
-              clientId: CLIENT_ID,
-              clientSecret: CLIENT_SECRET,
-              refreshToken: REFRESH_TOKEN,
-              accessToken: tokenAcceso,
+              pass: 'zmps zyok owds vceh',
+  
             },
+            tls:{
+              rejectUnauthorized: true
+            }
+  
           });
   
           const mailOptions = {
@@ -317,15 +331,22 @@ const archivosPDF = req.files;
           try {
             const tokenAcceso = await oAuth2Client.getAccessToken();
             const transporter = nodemailer.createTransport({
-              service: 'Gmail',
+              service: 'gmail',
+              port: 465,
+              secure: true,
+              logger:true,
+    
+              secureConnection: false,
               auth: {
-                type: 'OAuth2',
+    
                 user: 'dossin.mail.service@gmail.com',
-                clientId: CLIENT_ID,
-                clientSecret: CLIENT_SECRET,
-                refreshToken: REFRESH_TOKEN,
-                accessToken: tokenAcceso,
+                pass: 'zmps zyok owds vceh',
+    
               },
+              tls:{
+                rejectUnauthorized: true
+              }
+    
             });
     
             const mailOptions = {
