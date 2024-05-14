@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class BlogComponent {
   constructor(private translate: TranslateService){}
   portadaData = {
-    videoSrc: '../../../../assets/videos/placeholder-video.mp4',
+    videoSrc: '../../../../assets/videos/video4.mp4',
     titulo: '',
     texto: '',
   };
