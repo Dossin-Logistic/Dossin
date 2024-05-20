@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class FlotaComponent {
   portadaData = {
-    videoSrc: '../../../../assets/videos/placeholder-video.mp4',
+    videoSrc: '../../../../assets/videos/video4.mp4',
     titulo: 'Nuestra Flota',
     texto: 'Preparados para prestar servicios a diferentes industrias'
   };
