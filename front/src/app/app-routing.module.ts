@@ -42,6 +42,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./feature/blog/blog.module').then((m) => m.BlogModule),
   },
+  {
+    path: 'politica-de-privacidad',
+    loadChildren: () =>
+      import('./feature/politica-de-privacidad/politica-de-privacidad.module').then((m) => m.PoliticaDePrivacidadModule),
+  },
 ];
 
 @NgModule({

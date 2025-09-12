@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PoliticaDePrivacidadModule } from './feature/politica-de-privacidad/politica-de-privacidad.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    PoliticaDePrivacidadModule
   ],
   providers: [
     {
